@@ -10,7 +10,7 @@ $( document ).ready(function() {
     $("#day").html(titleDay[weekday]);
     
     var list = [
-        "Adrii",
+        "Adriane",
         "Samantha",
         "João",
         "Kanamy",
