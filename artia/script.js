@@ -18,6 +18,7 @@ $( document ).ready(function() {
         "Júlia",
         "Alex Sander",
         "Guilherme",
+        "Felipe",
         "Jadson"
     ];    
     

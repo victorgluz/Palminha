@@ -20,7 +20,6 @@ $( document ).ready(function() {
         "Lorem",
         "Erivaldo",
         "Eric",
-        "Felipe",
         "Jadson S.",
         "Jadson C.",
     ];    
