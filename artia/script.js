@@ -47,7 +47,7 @@ $( document ).ready(function() {
                 }, {
                     duration: 5000,
                     complete: function (elements) {
-                        var audio = new Audio('clap.mp3');
+                        var audio = new Audio('../src/clap.mp3');
                         audio.play();
                         setTimeout(function() {
                             elemento = document.querySelector("#wheel");

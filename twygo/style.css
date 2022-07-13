@@ -6,13 +6,19 @@ img{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5vh;
+    margin-bottom: 1vh;
 }
 #day{
     text-align: center;
     color: white;
     font-family: "Verdana";
     color: #A847E3;
+}
+h1{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
 }
 .hide {
     display: none;
@@ -24,7 +30,7 @@ img{
     /*border: 1px solid white;*/
     box-sizing: border-box;
     height: 560px;
-    margin: 0 auto 2em;
+    margin: 0 auto 0;
     overflow: hidden;
     position: relative;
     -webkit-border-radius: 100%;

@@ -14,14 +14,13 @@ $( document ).ready(function() {
         "Dayan",
         "Lucas M.",
         "Mateus",
-        "Vinicius",
         "Milles",
         "Karla",
-        "Lorem",
+        "Loren",
         "Erivaldo",
         "Eric",
         "Jadson S.",
-        "Jadson C.",
+        "Jadson C."
     ];    
     
     const part = 360 / list.length;
@@ -49,7 +48,7 @@ $( document ).ready(function() {
                 }, {
                     duration: 5000,
                     complete: function (elements) {
-                        var audio = new Audio('clap.mp3');
+                        var audio = new Audio('../src/clap.mp3');
                         audio.play();
                         setTimeout(function() {
                             elemento = document.querySelector("#wheel");
