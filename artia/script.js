@@ -19,7 +19,9 @@ $( document ).ready(function() {
         "Alex Sander",
         "Guilherme",
         "Felipe",
-        "Jadson"
+        "Jadson",
+        "Dayenne",
+        "Heitor"
     ];    
     
     const part = 360 / list.length;
