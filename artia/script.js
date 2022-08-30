@@ -15,12 +15,9 @@ $( document ).ready(function() {
         "Victor",
         "Lucas",
         "Matheus",
-        "Júlia",
         "Alex Sander",
-        "Guilherme",
         "Felipe",
         "Jadson",
-        "Dayenne",
         "Heitor"
     ];    
     
