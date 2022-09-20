@@ -10,9 +10,10 @@ $( document ).ready(function() {
     $("#day").html(titleDay[weekday]);
     
     var list = [
-        "Alexandre",
+        "Alex Simão",
         "Géssica",
         "Victor",
+        "Daniely",
         "Lucas",
         "Matheus",
         "Alex Sander",
@@ -20,7 +21,8 @@ $( document ).ready(function() {
         "Jadson",
         "Heitor",
         "Shaiane",
-        "Leandro"
+        "Leandro",
+        "Guilherme"
     ];    
     
     const part = 360 / list.length;

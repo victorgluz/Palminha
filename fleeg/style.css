@@ -132,7 +132,7 @@ h1{
     left: 0;
     position: absolute;
     text-decoration: none;
-    top: 48px;
+    top: 30px;
     width: 100%;
 }
 .wheel li:nth-child(odd) img {

@@ -20,7 +20,10 @@ $( document ).ready(function() {
         "Erivaldo",
         "Eric",
         "Jadson S.",
-        "Jadson C."
+        "Jadson C.",
+        "Jessica",
+        "Addson",
+        "Luís"
     ];    
     
     const part = 360 / list.length;
