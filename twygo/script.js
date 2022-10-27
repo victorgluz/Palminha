@@ -12,18 +12,20 @@ $( document ).ready(function() {
     var list = [
         "Guilherme",
         "Dayan",
-        "Lucas M.",
-        "Mateus",
-        "Milles",
-        "Karla",
-        "Loren",
-        "Erivaldo",
-        "Eric",
-        "Jadson S.",
-        "Jadson C.",
-        "Jessica",
         "Addson",
-        "Luís"
+        "Lucas",
+        "Milles",
+        "Gabriel",
+        "Luís",
+        "Mateus",
+        "Jessica",
+        "Eduardo",
+        "Erivaldo",
+        "Loren",
+        "Grasi",
+        "Jadson",
+        "Karla",
+        "Heitor"
     ];    
     
     const part = 360 / list.length;
