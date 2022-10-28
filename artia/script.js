@@ -4,6 +4,8 @@ function ordSequential(part_deg, players) {
     return _deg = _deg + (rand * part_deg) + 2160;
 };
 $( document ).ready(function() {
+    const runButton = document.querySelector("#wheel");
+
     var date = new Date();
     var weekday = date.getDay() - 1;
     var titleDay = ["Segundouu", "Terçouu", "Quartouuu", "Quintouuuu", "🎉 SEXTOUUUUUU 🎉", "É Sábado mano, o que se tá fazendo aqui?", "É Domingo mano, o que se tá fazendo aqui?"]
@@ -11,24 +13,25 @@ $( document ).ready(function() {
     
     var list = [
         "Alex Simão",
-        "Géssica",
         "Victor",
         "Daniely",
         "Lucas",
         "Matheus",
         "Alex Sander",
         "Felipe",
-        "Jadson",
         "Heitor",
+        "Leandro Pierin",
         "Shaiane",
-        "Leandro",
-        "Guilherme"
+        "Leandro Silva",
+        "Luiza",
+        "Alex Grawe",
+        "Zeferino"
     ];    
     
     const part = 360 / list.length;
     
     for(i=0; i<list.length; i++){
-        $("#wheel").append("<li><a class='fancybox'>"+list[i]+"</a></li>");
+        $("#wheel").append("<li><a class='fancybox'><span>"+list[i]+"</span></a></li>");
         $(".wheel li:nth-child("+(i+1)+")").css({"-webkit-transform" : "rotate("+(i*part)+"deg)"});
         $(".wheel li:nth-child("+(i+1)+")").css({"-moz-transform" : "rotate("+(i*part)+"deg)"});
         $(".wheel li:nth-child("+(i+1)+")").css({"-ms-transform" : "rotate("+(i*part)+"deg)"});
@@ -53,9 +56,32 @@ $( document ).ready(function() {
                         var audio = new Audio('../src/clap.mp3');
                         audio.play();
                         setTimeout(function() {
-                            elemento = document.querySelector("#wheel");
-                            party.confetti(elemento, {
-                                    count: party.variation.range(100, 100),
+                            party.scene.current.createEmitter({
+                                emitterOptions: {
+                                    loops: 1,
+                                    useGravity: true,
+                                    modules: [
+                                        new party.ModuleBuilder()
+                                            .drive("size")
+                                            .by((t) => 0.5 + 0.3 * (Math.cos(t * 10) + 1))
+                                            .build(),
+                                        new party.ModuleBuilder()
+                                            .drive("rotation")
+                                            .by((t) => new party.Vector(0, 0, 100).scale(t))
+                                            .relative()
+                                            .build(),
+                                    ],
+                                },
+                                emissionOptions: {
+                                    rate: 0,
+                                    bursts: [{ time: 0, count: 100 }],
+                                    sourceSampler: party.sources.dynamicSource(runButton),
+                                    angle: party.variation.range(10, 20),
+                                    initialSpeed: 10,
+                                    initialColor: party.variation.gradientSample(
+                                        party.Gradient.simple(party.Color.fromHex("#FE3B03"), party.Color.fromHex("#FE3B03"))
+                                    ),
+                                },
                             });
                         }, 500);
                         
@@ -64,6 +90,7 @@ $( document ).ready(function() {
                             opacity: 0.8
                         }, {
                             duration: 100,
+                            color: '#FE3B03',
                             complete: function () {
                                 $(".fancybox").eq(_target).trigger("click");
                             }

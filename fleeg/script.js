@@ -11,19 +11,18 @@ $( document ).ready(function() {
     
     var list = [
         "Adriane",
-        "Samantha",
         "João",
         "Kanamy",
-        "Everton",
+        "Éverton",
         "Lucas",
-        "Jadson",
-        "Vinicius"
+        "Vinicius",
+        "Heitor"
     ];    
     
     const part = 360 / list.length;
     
     for(i=0; i<list.length; i++){
-        $("#wheel").append("<li><a class='fancybox'>"+list[i]+"</a></li>");
+        $("#wheel").append("<li><a class='fancybox'><span>"+list[i]+"</span></a></li>");
         $(".wheel li:nth-child("+(i+1)+")").css({"-webkit-transform" : "rotate("+(i*part)+"deg)"});
         $(".wheel li:nth-child("+(i+1)+")").css({"-moz-transform" : "rotate("+(i*part)+"deg)"});
         $(".wheel li:nth-child("+(i+1)+")").css({"-ms-transform" : "rotate("+(i*part)+"deg)"});
@@ -48,9 +47,33 @@ $( document ).ready(function() {
                         var audio = new Audio('../src/clap.mp3');
                         audio.play();
                         setTimeout(function() {
-                            elemento = document.querySelector("#wheel");
-                            party.confetti(elemento, {
-                                    count: party.variation.range(100, 100),
+                            const runButton = document.querySelector("#wheel");
+                            party.scene.current.createEmitter({
+                                emitterOptions: {
+                                    loops: 1,
+                                    useGravity: true,
+                                    modules: [
+                                        new party.ModuleBuilder()
+                                            .drive("size")
+                                            .by((t) => 0.5 + 0.3 * (Math.cos(t * 10) + 1))
+                                            .build(),
+                                        new party.ModuleBuilder()
+                                            .drive("rotation")
+                                            .by((t) => new party.Vector(0, 0, 100).scale(t))
+                                            .relative()
+                                            .build(),
+                                    ],
+                                },
+                                emissionOptions: {
+                                    rate: 0,
+                                    bursts: [{ time: 0, count: 100 }],
+                                    sourceSampler: party.sources.dynamicSource(runButton),
+                                    angle: party.variation.range(10, 20),
+                                    initialSpeed: 10,
+                                    initialColor: party.variation.gradientSample(
+                                        party.Gradient.simple(party.Color.fromHex("#FE3B03"), party.Color.fromHex("#FE3B03"))
+                                    ),
+                                },
                             });
                         }, 500);
                         
