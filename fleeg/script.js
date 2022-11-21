@@ -11,13 +11,12 @@ $( document ).ready(function() {
     
     var list = [
         "Adriane",
-        "Samantha",
         "João",
         "Kanamy",
-        "Everton",
+        "Éverton",
         "Lucas",
-        "Jadson",
-        "Vinicius"
+        "Vinicius",
+        "Heitor"
     ];    
     
     const part = 360 / list.length;

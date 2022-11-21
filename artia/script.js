@@ -11,19 +11,20 @@ $( document ).ready(function() {
     
     var list = [
         "Alex Simão",
-        "Géssica",
         "Victor",
         "Daniely",
         "Lucas",
         "Matheus",
         "Alex Sander",
         "Felipe",
-        "Jadson",
         "Heitor",
+        "Leandro Pierin",
         "Shaiane",
-        "Leandro",
-        "Guilherme"
-    ];    
+        "Leandro Silva",
+        "Luiza",
+        "Alex Grawe",
+        "Zeferino"
+    ];   
     
     const part = 360 / list.length;
     
