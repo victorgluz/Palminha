@@ -10,20 +10,24 @@ $( document ).ready(function() {
     $("#day").html(titleDay[weekday]);
     
     var list = [
-        "Alex Simão",
-        "Victor",
-        "Daniely",
+        "Simão",
+        "Vitão",
+        "Dani",
         "Lucas",
         "Matheus",
-        "Alex Sander",
-        "Felipe",
+        "Sander",
+        "Simoneto",
         "Heitor",
-        "Leandro Pierin",
-        "Shaiane",
-        "Leandro Silva",
+        "Leandro P.",
+        "Shai",
+        "Leandro S.",
         "Luiza",
-        "Alex Grawe",
-        "Zeferino"
+        "Grawe",
+        "Zeferino",
+        "Daniela",
+        "Jessica",
+        "Carlos",
+        "Priscila"
     ];   
     
     const part = 360 / list.length;
