@@ -25,7 +25,13 @@ $( document ).ready(function() {
         "Grasi",
         "Jadson",
         "Karla",
-        "Heitor"
+        "Heitor",
+        "Grasiela",
+        "Danilo",
+        "Felipe",
+        "Vinicius",
+        "Eric",
+        "Tiago"
     ];     
     
     const part = 360 / list.length;

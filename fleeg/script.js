@@ -11,8 +11,6 @@ $( document ).ready(function() {
     
     var list = [
         "Adriane",
-        "João",
-        "Kanamy",
         "Éverton",
         "Lucas",
         "Vinicius",
