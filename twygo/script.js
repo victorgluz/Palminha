@@ -26,7 +26,6 @@ $( document ).ready(function() {
         "Jadson",
         "Karla",
         "Heitor",
-        "Grasiela",
         "Danilo",
         "Felipe",
         "Vinicius",
