@@ -43,10 +43,10 @@ h1{
     margin-left: -32px;
     position: absolute;
     top: 8px;
-    z-index: 100;
+    z-index: 1;
     width: 0;
 }
-.skills-wheel .btn {
+.skills-wheel .btn-run {
     cursor: pointer;
     background-color: #404040;
     color: #fff;
@@ -71,7 +71,7 @@ h1{
     top: 50%;
     width: 100px;
 }
-.skills-wheel .btn:active {
+.skills-wheel .btn-run:active {
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -134,3 +134,87 @@ h1{
     -moz-opacit: 0.8;
     opacity: 0.8;
 }
+.primary-color {
+    color: #008E8E !important;
+}
+
+.primary-bg {
+    background-color: #008E8E !important;
+    border: 0px !important;
+}
+.center {
+    text-align: center;
+}
+.nav-item a.active{
+    background-color: #008E8E !important;
+    color: white !important;
+}
+.nav-item:hover{
+    opacity: .7;
+}
+
+
+/* Premium css */
+.stats, .history{
+    display: none;
+}
+.custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+        7px 7px 20px 0px rgba(0,0,0,.1),
+        4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+}
+.btn-premium {
+    border: none;
+    background: #008E8E;
+    background: linear-gradient(0deg, #018585 0%, #006464 100%);
+    color: #fff;
+    overflow: hidden;
+}
+.btn-premium:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.btn-premium:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 6s ease-in-out infinite;
+}
+.btn-premium:hover{
+    opacity: .7;
+}
+.btn-premium:active{
+    box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
+            -4px -4px 6px 0 rgba(116, 125, 136, .2), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.2),
+    inset 4px 4px 6px 0 rgba(0, 0, 0, .2);
+}
+@-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}
+
+.modal a.close-modal{
+    display: none !important;
+}
+

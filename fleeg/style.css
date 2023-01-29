@@ -48,7 +48,7 @@ h1{
     margin-left: -32px;
     position: absolute;
     top: 8px;
-    z-index: 100;
+    z-index: 1;
     width: 0;
 }
 .skills-wheel .btn {
