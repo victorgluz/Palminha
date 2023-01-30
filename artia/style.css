@@ -149,6 +149,13 @@ h1{
     background-color: #008E8E !important;
     color: white !important;
 }
+.swal2-styled{
+    background-color: #008E8E !important;
+    color: white !important;
+}
+.swal2-footer a{
+    color: #008E8E !important;
+}
 .nav-item:hover{
     opacity: .7;
 }
@@ -176,18 +183,18 @@ h1{
         4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
 }
-.btn-premium {
+.premium-user {
     border: none;
     background: #008E8E;
     background: linear-gradient(0deg, #018585 0%, #006464 100%);
     color: #fff;
     overflow: hidden;
 }
-.btn-premium:hover {
+.premium-user:hover {
     text-decoration: none;
     color: #fff;
 }
-.btn-premium:before {
+.premium-user:before {
     position: absolute;
     content: '';
     display: inline-block;
@@ -198,10 +205,10 @@ h1{
     background-color: #fff;
     animation: shiny-btn1 6s ease-in-out infinite;
 }
-.btn-premium:hover{
+.premium-user:hover{
     opacity: .7;
 }
-.btn-premium:active{
+.premium-user:active{
     box-shadow:  4px 4px 6px 0 rgba(255,255,255,.3),
             -4px -4px 6px 0 rgba(116, 125, 136, .2), 
     inset -4px -4px 6px 0 rgba(255,255,255,.2),

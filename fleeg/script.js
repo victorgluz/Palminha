@@ -66,4 +66,5 @@ $( document ).ready(function() {
         });
         return false;
     });
+    cookiesMessage();
 }); // ready

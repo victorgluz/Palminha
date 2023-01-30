@@ -1,49 +1,38 @@
+let list = [
+    "Simão",
+    "Vitão",
+    "Dani",
+    "Lucas",
+    "Matheus",
+    "Sander",
+    "Simoneto",
+    "Heitor",
+    "Leandro P.",
+    "Shai",
+    "Leandro S.",
+    "Luiza",
+    "Grawe",
+    "Zeferino",
+    "Daniela",
+    "Jessica",
+    "Carlos",
+    "Priscila"
+];
+
+let part;
+let current_ip = "";
+let current_user = "";
+json_user = localStorage.getItem('current_user');
+if(json_user != undefined){
+    current_user = JSON.parse(json_user);
+}
+
+
 var _target, _deg = 0;
 function ordSequential(part_deg, players) {
     rand = Math.floor(Math.random() * players);
     return _deg = _deg + (rand * part_deg) + 2160;
 };
-
-function cookiesMessage(){
-    Swal.fire({
-        title: 'Aceita um cookie? 🍪',
-        text: 'Nós usamos cookies e outras tecnologias semelhantes para melhorar a sua experiência em nossos serviços. Ao utilizar nossos serviços, você está ciente dessa funcionalidade.',
-        footer: '<a href="../politica-de-privacidade" target="_blank">Política de Privacidade</a>⠀⠀⠀⠀⠀⠀⠀⠀<a href="https://pt.wikipedia.org/wiki/Cookie_(inform%C3%A1tica)" target="_blank">O que são cookies?</a>',
-        confirmButtonText: 'Continuar'
-    })
-}
-
-function showMessage(type, message, delay){
-    //success - error - warning	- info - question
-    if(delay == undefined){ delay = 1500; }
-    Swal.fire({
-        position: 'center',
-        icon: type,
-        title: message,
-        showConfirmButton: false,
-        timer: delay
-    })
-}
-
-function flashMessage(type, message, delay){
-    if(delay == undefined){ delay = 1500; }
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'bottom-end',
-        showConfirmButton: false,
-        timer: 5000,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      
-      Toast.fire({
-        icon: type,
-        title: message
-      })
-}
 
 function switchMode(mode){
     if(mode == "register"){
@@ -68,12 +57,38 @@ function switchMode(mode){
     }
 }
 
+function menuName(){
+    var name = current_user.name.split(' ');
+    return "Olá,&nbsp;"+name[0];
+}
+
+function loadMenu(){
+    if(current_user.id == undefined){
+        $(".stats, .history").hide();
+        $(".login-menu").show();
+        $(".default-menu").hide();
+        $(".premium-menu").hide();
+    }else if(current_user.is_premium == undefined){
+        $(".stats, .history").hide();
+        $(".login-menu").hide();
+        $(".default-menu").show();
+        $(".premium-menu").hide();
+        $(".default-user").html(menuName());
+    }else if(current_user.is_premium == "1"){
+        $(".stats, .history").show();
+        $(".login-menu").hide();
+        $(".default-menu").hide();
+        $(".premium-menu").show();
+        $(".premium-user").html(menuName());
+    }
+}
+
 function hideModal(element){
     $('.jquery-modal').hide();
     $(element).hide();
 }
 
-let current_ip = "";
+
 function getIp(){
     $.ajax({
         url: "../api/getIp.php",
@@ -85,6 +100,7 @@ function getIp(){
 getIp();
 
 function userLogin(){
+    localStorage.removeItem('current_user');
     var mode = $('#formMode').val()
     var device = { ip: current_ip, screen: window.outerWidth+"x"+window.outerHeight, user_agent: navigator.userAgent }
     var name = $('#userName').val()
@@ -112,37 +128,35 @@ function userLogin(){
         url: "../api/login.php",
         data: { mode: mode, name: name, email: email, pass: password, device: device },
         success: function(returned){
-            console.log(returned);
             switch (returned) {
                 case 'error_login':
                     $('#userPassword').val('');
-                    flashMessage('error', "E-mail ou senha incorreto(s).")
+                    showMessage('error', "E-mail ou senha incorreto(s).")
                     break;
                 case 'error_account':
                     $('#userEmail').val('');
-                    flashMessage('error', "Este e-mail já está cadastrado no sistema!", 3000)
+                    showMessage('error', "Este e-mail já está cadastrado no sistema!", 3000)
                     break;
                 case 'registered':
                     hideModal('modalSignin');
-                    flashMessage('success', "Registrado com sucesso!")
+                    showMessage('success', "Registrado com sucesso!")
                     break;
                 default:
                     hideModal('modalSignin');
-                    flashMessage('success', "Logado com sucesso!")
+                    showMessage('success', "Logado com sucesso!")
+                    localStorage.setItem('current_user', returned);
+                    current_user = JSON.parse(returned);
+                    loadMenu();
                     break;
             }
         }
     });
 }
 
-function showPremium(){
-    premium = false;
-    if(premium){
-        $(".stats, .history").show();
-        $(".default-menu").hide();
-        $(".premium-menu").show();
+function restoreSession(){
+    if(current_user.id != undefined){
+        loadMenu();
     }
-    return false;
 }
 
 $( document ).ready(function() {
@@ -151,28 +165,7 @@ $( document ).ready(function() {
     var titleDay = ["Segundouu", "Terçouu", "Quartouuu", "Quintouuuu", "🎉 SEXTOUUUUUU 🎉", "É Sábado mano, o que se tá fazendo aqui?", "É Domingo mano, o que se tá fazendo aqui?"]
     $("#day").html(titleDay[weekday]);
     
-    var list = [
-        "Simão",
-        "Vitão",
-        "Dani",
-        "Lucas",
-        "Matheus",
-        "Sander",
-        "Simoneto",
-        "Heitor",
-        "Leandro P.",
-        "Shai",
-        "Leandro S.",
-        "Luiza",
-        "Grawe",
-        "Zeferino",
-        "Daniela",
-        "Jessica",
-        "Carlos",
-        "Priscila"
-    ];   
-    
-    const part = 360 / list.length;
+    part = 360 / list.length;
     
     for(i=0; i<list.length; i++){
         $("#wheel").append("<li><a class='fancybox'>"+list[i]+"</a></li>");
@@ -190,26 +183,38 @@ $( document ).ready(function() {
     });
 
     $(".skills-wheel .btn-run").on("click", function (e) {
+        
+        var myInterval = "";
+        var audio = new Audio('../src/roda-roda.mp3');
+        audio.play();
+        clearInterval(myInterval);
         ordSequential(part, list.length);
         _target = (_deg - (360 * parseInt(_deg / 360))) / part;
         $(".fancybox").parent("li").velocity({
             opacity: 1
         }, {
             duration: 100,
+            start: function(){
+                console.log(_deg+'deg');
+                $("#wheel").css({"transform": "rotateZ(0deg)"});
+            },
             complete: function () {
                 $(".wheel").velocity({
                     rotateZ: _deg + "deg"
                 }, {
-                    duration: 5000,
+                    duration: 5500,
                     complete: function (elements) {
-                        var audio = new Audio('../src/clap.mp3');
-                        audio.play();
-                        setTimeout(function() {
+                        // addToHistory();
+                        myInterval = setInterval(function() {
                             elemento = document.querySelector("#wheel");
                             party.confetti(elemento, {
-                                    count: party.variation.range(100, 100),
+                                    count: party.variation.range(50, 75),
                             });
-                        }, 500);
+                        }, 1500);
+
+                        setTimeout(function(){
+                            clearInterval(myInterval);
+                        }, 4500)
                         
 
                         $(".fancybox").parent("li").eq(_target).velocity({
@@ -226,5 +231,6 @@ $( document ).ready(function() {
         });
         return false;
     });
-    showPremium();
+    restoreSession();
+    cookiesMessage();
 }); // ready

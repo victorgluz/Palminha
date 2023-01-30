@@ -140,3 +140,13 @@ h1{
     -moz-opacit: 0.8;
     opacity: 0.8;
 }
+
+/* Cookies */
+
+.swal2-styled{
+    background-color: #0ABEF3 !important;
+    color: white !important;
+}
+.swal2-footer a{
+    color: #0ABEF3 !important;
+}

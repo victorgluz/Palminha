@@ -14,6 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../src/flashMessage.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -28,13 +29,13 @@
 				<li class="nav-item"><a href="../" class="nav-link primary-color">Início</a></li>
         <li class="nav-item"><a target="_blank" href="https://github.com/victorgluz/Palminha/wiki/Novidades" class="nav-link primary-color">Novidades</a></li>
         <li class="nav-item"><a target="_blank" href="https://github.com/victorgluz/Palminha/issues" class="nav-link primary-color">Sugestões</a></li>
-				<li class="nav-item"><a href="#modalSignin" class="nav-link primary-color active" rel="modal:open" onclick="$('.close-modal').hide()">Login</a></li>
+				<li class="nav-item"><a href="#" class="nav-link primary-color active default-user"></a></li>
       </ul>
 			<ul class="nav nav-pills premium-menu" style="display: none;">
 				<li class="nav-item"><a href="../" class="nav-link primary-color">Início</a></li>
         <li class="nav-item"><a target="_blank" href="https://github.com/victorgluz/Palminha/wiki/Novidades" class="nav-link primary-color">Novidades</a></li>
         <li class="nav-item"><a target="_blank" href="https://github.com/victorgluz/Palminha/issues" class="nav-link primary-color">Sugestões</a></li>
-				<li class="nav-item"><button id="btn-confetti" class="custom-btn btn-premium">Olá,&nbsp;Victor</button></li>
+				<li class="nav-item"><button id="btn-confetti" class="custom-btn premium-user"></button></li>
       </ul>
     </header>
   </div>
@@ -65,7 +66,7 @@
     </script>
 
 
-    <div class="modal" id="modalSignin" style="height: 60%;">
+    <div class="modal" id="modalSignin" style="height: 62%;">
       <div id="form-modal">
         <div class="modal-header p-5 pb-4 border-bottom-0">
           <h1 class="fw-bold mb-0 fs-2 switch-title">Login</h1>

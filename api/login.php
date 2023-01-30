@@ -10,6 +10,9 @@ $user = $stmt->fetch();
 if($_POST["mode"] == "login"){
     if($user['email'] == $_POST["email"]){
         if(md5($_POST["pass"]) == $user['password']){
+            $sql = "INSERT INTO devices (ip, screen, user_agent, users_id) VALUES (?,?,?,?)";
+            $stmt= $pdo->prepare($sql);
+            $stmt->execute([$_POST["device"]["ip"], $_POST["device"]["screen"], $_POST["device"]["user_agent"], $user['id']]);
             echo json_encode($user, JSON_UNESCAPED_UNICODE);
         }else{
             echo 'error_login';
