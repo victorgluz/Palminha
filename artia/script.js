@@ -15,8 +15,7 @@ let list = [
     "Zeferino",
     "Daniela",
     "Jessica",
-    "Carlos",
-    "Priscila"
+    "Carlos"
 ];
 
 let part;
